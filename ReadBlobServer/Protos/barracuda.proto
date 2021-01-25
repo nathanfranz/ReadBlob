@@ -1,0 +1,18 @@
+syntax = "proto3";
+package barracuda;
+service BlobProxy {
+    rpc ReadBlob (ReadBlobRequest) returns (ReadBlobResponse) {}
+    rpc StorageSummary (StorageSummaryRequest) returns (StorageSummaryResponse) {}
+}
+message ReadBlobRequest {
+    string key = 1;
+}
+message ReadBlobResponse {
+    bytes data = 1;
+}
+message StorageSummaryRequest {
+}
+message StorageSummaryResponse {
+    uint64 totalCount = 1;
+    uint64 totalSize = 2;
+}
